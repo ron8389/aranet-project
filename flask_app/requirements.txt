@@ -1,0 +1,6 @@
+flask
+azure-eventhub
+azure-storage-blob
+pandas
+pyarrow
+gunicorn
