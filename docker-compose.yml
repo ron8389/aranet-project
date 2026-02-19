@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  flask-app:
+    build: .
+    container_name: aranet-flask
+    environment:
+      - MODE=flask
+      - BLOB_CONNECTION_STRING=${BLOB_CONNECTION_STRING}
+      - BLOB_CONTAINER_NAME=${BLOB_CONTAINER_NAME}
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  streamlit-app:
+    build: .
+    container_name: aranet-streamlit
+    environment:
+      - MODE=streamlit
+      - BLOB_CONNECTION_STRING=${BLOB_CONNECTION_STRING}
+      - BLOB_CONTAINER_NAME=${BLOB_CONTAINER_NAME}
+      - FLASK_URL=http://flask-app:5000
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+
+  collector:
+    build: .
+    container_name: aranet-collector
+    environment:
+      - MODE=collector
+      - BLOB_CONNECTION_STRING=${BLOB_CONNECTION_STRING}
+      - BLOB_CONTAINER_NAME=${BLOB_CONTAINER_NAME}
+      - EVENTHUB_CONNECTION_STRING=${EVENTHUB_CONNECTION_STRING}
+      - EVENTHUB_NAME=${EVENTHUB_NAME}
+    restart: unless-stopped

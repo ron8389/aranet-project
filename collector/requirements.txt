@@ -1,0 +1,4 @@
+azure-eventhub
+azure-storage-blob
+pandas
+pyarrow
