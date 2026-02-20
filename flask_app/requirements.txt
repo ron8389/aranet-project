@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 flask
 streamlit
 azure-eventhub
@@ -5,3 +6,11 @@ azure-storage-blob
 pandas
 pyarrow
 gunicorn
+=======
+flask
+azure-eventhub
+azure-storage-blob
+pandas
+pyarrow
+gunicorn
+>>>>>>> 6b5527556de5fe49bdb6624aa2e42e75f1b28171

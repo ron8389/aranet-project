@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 streamlit
 pandas
 azure-storage-blob
+=======
+streamlit
+pandas
+azure-storage-blob
+>>>>>>> 6b5527556de5fe49bdb6624aa2e42e75f1b28171
 pyarrow

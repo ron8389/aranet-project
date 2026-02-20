@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: "3.9"
 
 services:
@@ -33,4 +34,29 @@ services:
       - BLOB_CONTAINER_NAME=${BLOB_CONTAINER_NAME}
       - EVENTHUB_CONNECTION_STRING=${EVENTHUB_CONNECTION_STRING}
       - EVENTHUB_NAME=${EVENTHUB_NAME}
+=======
+version: "3.9"
+
+services:
+  flask-app:
+    build: .
+    container_name: aranet-flask
+    environment:
+      - MODE=flask
+    volumes:
+      - ./data:/data
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  streamlit-app:
+    build: .
+    container_name: aranet-streamlit
+    environment:
+      - MODE=streamlit
+    volumes:
+      - ./data:/data
+    ports:
+      - "8501:8501"
+>>>>>>> 6b5527556de5fe49bdb6624aa2e42e75f1b28171
     restart: unless-stopped
